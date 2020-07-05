@@ -12,7 +12,7 @@ def convert_file_to_base64(filepath:str) -> str:
 
 	if os.path.exists(filepath):
 		with open(filepath, 'rb') as file:
-			return base64.b64encode(file.read())
+			return base64.b64encode(file.read()).decode('utf-8')
 
 	print('Couldn\'t find the input file. conversion aborted.')
 	return None
