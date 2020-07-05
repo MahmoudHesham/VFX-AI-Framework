@@ -29,7 +29,7 @@ def convert_base64_to_file(base64_data:str, output_filepath:str) -> str:
 	if base64_data:
 		with open(output_filepath, 'wb') as file:
 			file.write(base64.b64decode(base64_data))
-		
+
 		return output_filepath
 		
 	else:

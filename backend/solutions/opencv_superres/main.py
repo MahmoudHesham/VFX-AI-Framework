@@ -14,7 +14,7 @@ def make_image_superres(image_input_path:str, image_output_path:str) -> str:
 
 	if os.path.exists(image_input_path):
 		cv_img = cv2.imread(image_input_path)
-		height, width = img.shape[:2]
+		height, width = cv_img.shape[:2]
 		
 		resized_cv_img = cv2.resize(cv_img, (2*width, 2*height), interpolation = cv2.INTER_CUBIC)
 		cv2.imwrite(image_output_path, resized_cv_img)

@@ -1,5 +1,7 @@
+import os
 from tempfile import TemporaryDirectory
 from opencv_superres.main import make_image_superres
+import utils
 
 def process(received_data:dict) -> dict:
 	
@@ -11,23 +13,23 @@ def process(received_data:dict) -> dict:
 	'''
 
 	tempfolder = TemporaryDirectory(dir='workspace')
-	
+
 	filename, ext = os.path.splitext(received_data['filename'])
 	output_filename = f'{filename}_output{ext}'
 
-	input_image_filepath = os.path.join(tempfolder.name, filename)
-	output_image_filepath = os.path.join(tempfolder.name, output_filename)
+	input_image_filepath = os.path.abspath(os.path.join(tempfolder.name, received_data['filename']))
+	output_image_filepath = os.path.abspath(os.path.join(tempfolder.name, output_filename))
 	
-	input_image = convert_base64_to_file(base64_data=received_data['data'], output_filepath=input_image_filepath)
+	input_image = utils.convert_base64_to_file(base64_data=received_data['data'], output_filepath=input_image_filepath)
 	if(os.path.exists(input_image)):
 		output_image = make_image_superres(image_input_path=input_image, image_output_path=output_image_filepath)
-	
+
 	else:
 		print('Couldn\'t find input image, processing aborted.')
 		return None
 
-	if os.path.exists(output_filename):
-		return {'filename': output_filename, 'data': convert_file_to_base64(output_image)}
+	if os.path.exists(output_image_filepath):
+		return {'filename': output_filename, 'data': utils.convert_file_to_base64(output_image)}
 
 	print('Processing image failed, please try again.')
 	return None

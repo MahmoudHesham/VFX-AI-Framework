@@ -11,7 +11,6 @@ def make_image_gray(image_input_path:str, image_output_path:str) -> str:
 	and save it into output file.
 
 	'''
-
 	if os.path.exists(image_input_path):
 		cv_gray_img = cv2.imread(image_input_path, 0)
 		cv2.imwrite(image_output_path, cv_gray_img)
