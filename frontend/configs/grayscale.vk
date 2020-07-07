@@ -1,0 +1,6 @@
+{
+	"name":"OpenCV Grayscale",
+	"url":"http://192.168.x.x:5000/image_processing/grayscale",
+	"plugin":"grayscale_plugin.py",
+	"banner":"grayscale_banner.jpg"
+}

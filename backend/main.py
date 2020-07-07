@@ -11,7 +11,7 @@ app = Flask(__name__)
 def index():
 	return "baby steps to ai, VFX Kitchen."
 
-@app.route('/image_processing/gray', methods=['POST'])
+@app.route('/image_processing/grayscale', methods=['POST'])
 def gray_image_processing():
 
 	received_data = request.json
@@ -19,7 +19,7 @@ def gray_image_processing():
 
 	return jsonify(processed_data)
 
-@app.route('/image_processing/superres', methods=['POST'])
+@app.route('/image_processing/super_resolution', methods=['POST'])
 def superres_image_processing():
 
 	received_data = request.json

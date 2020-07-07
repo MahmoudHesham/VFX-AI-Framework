@@ -1,0 +1,6 @@
+{
+	"name":"Style Transfer",
+	"url":"http://192.168.x.x:5000/image_processing/style_transfer",
+	"plugin":"styletransfer_plugin.py",
+	"banner":"styletransfer_banner.jpg"
+}
