@@ -10,6 +10,8 @@ A scalable framework that allow us to use AI in Visual Effects without being str
 
 [![VFX AI Framework - Part 4 - Using PyQt](http://i3.ytimg.com/vi/76yV8UcMyKQ/hqdefault.jpg)](https://www.youtube.com/watch?v=76yV8UcMyKQ)
 
+[![VFX AI Framework - Part 5 - Release 1.0](http://i3.ytimg.com/vi/zZg_oR003bU/hqdefault.jpg)](https://www.youtube.com/watch?v=zZg_oR003bU)
+
 # License
 * All the tutorials, scripts, tools and software-bridges developed by VFX Kitchen. are free for academic and non-commercial use only.
 * for commercial purposes please contact the author over the contact form https://vfxkitchen.net/contact.
