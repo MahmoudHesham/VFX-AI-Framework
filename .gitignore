@@ -1,0 +1,3 @@
+*__pycache__
+frontend/output/*
+backend/solutions/ml_style_transfer/models/*

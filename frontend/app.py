@@ -158,7 +158,11 @@ class MainWin(QtWidgets.QDialog):
         if os.path.isdir(selected_filepath):
         	return
 
-        subprocess.Popen([selected_filepath], shell=True)
+        if sys.platform == 'linux':
+            subprocess.Popen([f'gio open {selected_filepath}'], shell=True)
+        
+        else:
+            subprocess.Popen([selected_filepath], shell=True)
 
     def solutions_context_menu(self, position):
 

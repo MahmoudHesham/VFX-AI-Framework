@@ -2,5 +2,5 @@
 	"name":"NGX Super Resolution",
 	"url":"http://192.168.x.x:5000/image_processing/super_resolution",
 	"plugin":"superres_plugin.py",
-	"banner":"superres_banner.jpg"
+	"banner":"super_resolution/superres_banner.jpg"
 }

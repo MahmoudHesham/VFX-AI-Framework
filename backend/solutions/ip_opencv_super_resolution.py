@@ -1,6 +1,6 @@
 import os
 from tempfile import TemporaryDirectory
-from opencv_make_gray.main import make_image_gray
+from opencv_super_resolution.main import make_image_super_resolution
 import utils
 
 def process(received_data:dict) -> dict:
@@ -23,7 +23,7 @@ def process(received_data:dict) -> dict:
 	input_image = utils.convert_base64_to_file(base64_data=received_data['data'], output_filepath=input_image_filepath)
 	
 	if(os.path.exists(input_image)):
-		make_image_gray(image_input_path=input_image, image_output_path=output_image_filepath)
+		make_image_super_resolution(image_input_path=input_image, image_output_path=output_image_filepath)
 
 	else:
 		print('Couldn\'t find input image, processing aborted.')

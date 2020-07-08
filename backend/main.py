@@ -20,10 +20,18 @@ def gray_image_processing():
 	return jsonify(processed_data)
 
 @app.route('/image_processing/super_resolution', methods=['POST'])
-def superres_image_processing():
+def super_resolution_image_processing():
 
 	received_data = request.json
-	processed_data = ml_solutions.ip_opencv_superres.process(received_data)
+	processed_data = ml_solutions.ip_opencv_super_resolution.process(received_data)
+
+	return jsonify(processed_data)
+
+@app.route('/image_processing/style_transfer', methods=['POST'])
+def style_transfer_image_processing():
+
+	received_data = request.json
+	processed_data = ml_solutions.ip_ml_style_transfer.process(received_data)
 
 	return jsonify(processed_data)
 

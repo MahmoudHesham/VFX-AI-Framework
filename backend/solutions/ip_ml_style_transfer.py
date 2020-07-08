@@ -1,7 +1,8 @@
 import os
 from tempfile import TemporaryDirectory
-from opencv_make_gray.main import make_image_gray
+from ml_style_transfer.main import fast_style_transfer
 import utils
+import inspect
 
 def process(received_data:dict) -> dict:
 	
@@ -11,7 +12,10 @@ def process(received_data:dict) -> dict:
 		with exact the same format.
 
 	'''
-
+	print(received_data)
+	print(received_data)
+	print(received_data)
+	print(received_data)
 	tempfolder = TemporaryDirectory(dir='workspace')
 
 	filename, ext = os.path.splitext(received_data['filename'])
@@ -23,7 +27,11 @@ def process(received_data:dict) -> dict:
 	input_image = utils.convert_base64_to_file(base64_data=received_data['data'], output_filepath=input_image_filepath)
 	
 	if(os.path.exists(input_image)):
-		make_image_gray(image_input_path=input_image, image_output_path=output_image_filepath)
+
+		solution_dir = os.path.dirname(inspect.getsourcefile(fast_style_transfer))
+		style_model = f"{solution_dir}/models/{received_data['style']}.ckpt"
+
+		fast_style_transfer(image_input_path=input_image, image_output_path=output_image_filepath, style=style_model)
 
 	else:
 		print('Couldn\'t find input image, processing aborted.')
